@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-		/>
-		<title>Hello WebXR!</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Hello WebXR!</title>
 
-		<!-- three.js -->
-		<script src="https://unpkg.com/three@0.126.0/build/three.js"></script>
-        <link rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
-		<!-- Starting an immersive WebXR session requires user interaction.
-    We start this one with a simple button. -->
-		<button onclick="activateXR()">Start Hello WebXR</button>
-		<script>
-			async function activateXR() {
-				// Add a canvas element and initialize a WebGL context that is compatible with WebXR.
-				const canvas = document.createElement("canvas");
-				document.body.appendChild(canvas);
-				const gl = canvas.getContext("webgl", { xrCompatible: true });
+        <!-- three.js -->
+        <script
+            type="text/javascript"
+            src="https://unpkg.com/three@0.126.0/build/three.js"
+        ></script>
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"
+        ></script>
+        <script src="src/main.js"></script>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <script id="vertex-data" type="not-js">
+            attribute vec4 vertex_points;
 
-				// To be continued in upcoming steps.
-			}
-		</script>
-	</body>
+            void main() {
+                gl_Position = vertex_points;
+            }
+        </script>
+        <script id="fragment-data" type="not-javascript">
+            precision mediump float;
+
+            void main() {
+                gl-FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+            }
+        </script>
+    </body>
 </html>
