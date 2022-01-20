@@ -19,8 +19,8 @@
         <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <canvas id="canvas"></canvas>
-        <script id="vertex-data" type="not-js">
+        <canvas id="canvas" width="1200" height="600"></canvas>
+        <script id="vertex-data" type="not-javascript">
             attribute vec4 vertex_points;
 
             void main() {
@@ -31,7 +31,7 @@
             precision mediump float;
 
             void main() {
-                gl-FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+                gl_FragColor = vec4(1, 0, 0, 1.0);
             }
         </script>
     </body>
